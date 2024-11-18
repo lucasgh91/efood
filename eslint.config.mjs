@@ -6,13 +6,7 @@ import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended'
 
 /** @type {import('eslint').Linter.Config[]} */
 export default [
-  {
-    settings: {
-      react: {
-        version: 'detect'
-      }
-    }
-  },
+  { settings: { react: { version: 'detect' } } },
   { files: ['**/*.{js,mjs,cjs,ts,jsx,tsx}'] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
