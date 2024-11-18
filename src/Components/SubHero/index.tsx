@@ -1,15 +1,15 @@
+import Restaurante from '../../models/Restaurante'
 import { SubHeroStylized } from './styles'
 
 type Props = {
-  titulo: string,
-  especialidade: string
+  restaurante: Restaurante
 }
 
-const SubHero = ({ titulo, especialidade }: Props) => (
-  <SubHeroStylized>
+const SubHero = ({ restaurante }: Props) => (
+  <SubHeroStylized imagem={restaurante?.imagem}>
     <div className="container">
-      <h2>{especialidade}</h2>
-      <h1>{titulo}</h1>
+      <h2>{restaurante?.especialidade}</h2>
+      <h1>{restaurante?.titulo}</h1>
     </div>
   </SubHeroStylized>
 )

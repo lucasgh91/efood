@@ -4,6 +4,7 @@ import ListaPratos from '../../Components/ListaPratos'
 import SubHeader from '../../Components/SubHeader'
 import SubHero from '../../Components/SubHero'
 import { dados } from '../../data/restaurantes'
+import Restaurante from '../../models/Restaurante'
 
 const Perfil = () => {
   const { id } = useParams()
@@ -14,10 +15,7 @@ const Perfil = () => {
     return (
       <>
         <SubHeader />
-        <SubHero
-          titulo={restaurante[0].titulo}
-          especialidade={restaurante[0].especialidade}
-        />
+        <SubHero restaurante={restaurante[0]} />
         <ListaPratos pratos={restaurante[0].pratos} />
         <Footer />
       </>
@@ -26,7 +24,9 @@ const Perfil = () => {
     return (
       <>
         <SubHeader />
-        <SubHero titulo={''} especialidade={''} />
+        <SubHero
+          restaurante={new Restaurante(1, '', '', '', [], 0, false, '')}
+        />
         <ListaPratos pratos={[]} />
         <Footer />
       </>
