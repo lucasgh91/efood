@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 
 export const cores = {
   vermelho: '#E66767',
@@ -23,4 +23,15 @@ export const GlobalStyle = createGlobalStyle`
     max-width: 1024px;
     margin: 0 auto;
   }
+`
+
+export const ButtonStylized = styled.button`
+  cursor: pointer;
+  background-color: ${cores.cremeEscuro};
+  color: ${cores.vermelho};
+  border: none;
+  font-weight: bold;
+  padding: 4px;
+  width: 100%;
+  margin-top: 8px;
 `

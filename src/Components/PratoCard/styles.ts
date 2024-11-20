@@ -7,9 +7,12 @@ export const PratoCardStylized = styled.div`
   background-color: ${cores.vermelho};
   color: ${cores.cremeEscuro};
   font-size: 14px;
+  position: relative;
 
   img {
     width: 100%;
+    height: 200px;
+    object-fit: cover;
   }
 
   h3 {
@@ -20,15 +23,5 @@ export const PratoCardStylized = styled.div`
 
   p {
     line-height: 22px;
-  }
-
-  button {
-    background-color: ${cores.cremeEscuro};
-    color: ${cores.vermelho};
-    border: none;
-    font-weight: bold;
-    padding: 4px;
-    width: 100%;
-    margin-top: 8px;
   }
 `

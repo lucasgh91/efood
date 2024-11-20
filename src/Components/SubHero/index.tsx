@@ -6,9 +6,12 @@ type Props = {
 }
 
 const SubHero = ({ restaurante }: Props) => (
-  <SubHeroStylized imagem={restaurante?.imagem}>
+  <SubHeroStylized
+    style={{
+      backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${restaurante.capa})`
+    }}>
     <div className="container">
-      <h2>{restaurante?.especialidade}</h2>
+      <h2>{restaurante?.tipo}</h2>
       <h1>{restaurante?.titulo}</h1>
     </div>
   </SubHeroStylized>
