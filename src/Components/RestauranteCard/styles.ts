@@ -8,6 +8,12 @@ export const RestauranteStylized = styled.div`
   background-color: ${cores.branco};
   color: ${cores.vermelho};
   position: relative;
+
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
 `
 
 export const Descricao = styled.div`

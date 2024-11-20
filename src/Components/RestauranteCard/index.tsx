@@ -12,22 +12,22 @@ const RestauranteCard = ({
   id,
   titulo,
   descricao,
-  imagem,
-  rating,
-  destaque,
-  especialidade
+  capa,
+  avaliacao,
+  destacado,
+  tipo
 }: Restaurante) => (
   <RestauranteStylized>
-    <img src={imagem} alt={titulo} />
+    <img src={capa} alt={titulo} />
     <TagSection>
-      {destaque ? <Tag>Destaque da semana</Tag> : ''}
-      <Tag>{especialidade}</Tag>
+      {destacado ? <Tag>Destaque da semana</Tag> : ''}
+      <Tag>{tipo}</Tag>
     </TagSection>
     <Descricao>
       <h2>
         {titulo}
         <div>
-          <p>{rating}</p>
+          <p>{avaliacao}</p>
           <img src={estrela} alt="Estrela" />
         </div>
       </h2>

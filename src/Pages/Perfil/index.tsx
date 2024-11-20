@@ -1,36 +1,37 @@
+import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import Footer from '../../Components/Footer'
-import ListaPratos from '../../Components/ListaPratos'
+import Restaurante from '../../models/Restaurante'
 import SubHeader from '../../Components/SubHeader'
 import SubHero from '../../Components/SubHero'
-import { dados } from '../../data/restaurantes'
-import Restaurante from '../../models/Restaurante'
+import ListaPratos from '../../Components/ListaPratos'
+import Footer from '../../Components/Footer'
+import Error from '../../Components/Error'
 
 const Perfil = () => {
   const { id } = useParams()
+  const [restaurante, setRestaurante] = useState<Restaurante>()
 
-  if (id) {
-    const restaurante = dados.filter((r) => r.id === parseInt(id))
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => {
+        return res.json()
+      })
+      .then((res) => setRestaurante(res))
+  }, [id, restaurante])
 
-    return (
-      <>
-        <SubHeader />
-        <SubHero restaurante={restaurante[0]} />
-        <ListaPratos pratos={restaurante[0].pratos} />
-        <Footer />
-      </>
-    )
-  } else {
-    return (
-      <>
-        <SubHeader />
-        <SubHero
-          restaurante={new Restaurante(1, '', '', '', [], 0, false, '')}
-        />
-        <ListaPratos pratos={[]} />
-        <Footer />
-      </>
-    )
-  }
+  return (
+    <>
+      <SubHeader />
+      {restaurante?.capa && restaurante?.cardapio ? (
+        <>
+          <SubHero restaurante={restaurante} />
+          <ListaPratos cardapio={restaurante.cardapio} />
+        </>
+      ) : (
+        <Error>Restaurante não encontrado!</Error>
+      )}
+      <Footer />
+    </>
+  )
 }
 export default Perfil

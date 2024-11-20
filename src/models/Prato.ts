@@ -1,13 +1,24 @@
 export class Prato {
+  foto: string
+  preco: number
   id: number
-  imagem: string
-  titulo: string
+  nome: string
   descricao: string
+  porcao: string
 
-  constructor(id: number, imagem: string, titulo: string, descricao: string) {
+  constructor(
+    foto: string,
+    preco: number,
+    id: number,
+    nome: string,
+    descricao: string,
+    porcao: string
+  ) {
+    this.foto = foto
+    this.preco = preco
     this.id = id
-    this.imagem = imagem
-    this.titulo = titulo
+    this.nome = nome
     this.descricao = descricao
+    this.porcao = porcao
   }
 }

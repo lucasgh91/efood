@@ -3,23 +3,20 @@ import PratoCard from '../PratoCard'
 import { ListaPratosStylized } from './styles'
 
 type Props = {
-  pratos: Prato[]
+  cardapio: Prato[]
 }
 
-const ListaPratos = ({ pratos }: Props) => {
+const ListaPratos = ({ cardapio }: Props) => {
   return (
-    <ListaPratosStylized>
-      {pratos.map((p) => (
-        <li key={p.id}>
-          <PratoCard
-            id={p.id}
-            imagem={p.imagem}
-            titulo={p.titulo}
-            descricao={p.descricao}
-          />
-        </li>
-      ))}
-    </ListaPratosStylized>
+    <div className="container">
+      <ListaPratosStylized>
+        {cardapio.map((p) => (
+          <li key={p.id}>
+            <PratoCard prato={p} />
+          </li>
+        ))}
+      </ListaPratosStylized>
+    </div>
   )
 }
 export default ListaPratos

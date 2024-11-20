@@ -15,11 +15,11 @@ const ListaRestaurantes = ({ restaurantes }: Props) => (
             id={r.id}
             titulo={r.titulo}
             descricao={r.descricao}
-            imagem={r.imagem}
-            rating={r.rating}
-            destaque={r.destaque}
-            especialidade={r.especialidade}
-            pratos={r.pratos}
+            capa={r.capa}
+            avaliacao={r.avaliacao}
+            destacado={r.destacado}
+            tipo={r.tipo}
+            cardapio={r.cardapio}
           />
         </li>
       ))}

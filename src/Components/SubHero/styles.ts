@@ -1,15 +1,7 @@
 import styled from 'styled-components'
 import { cores } from '../../utils/styles'
 
-interface Props {
-  imagem: string;
-}
-
-export const SubHeroStylized =
-  styled.section <
-  Props >
-  `
-  background:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${(props) => props.imagem});
+export const SubHeroStylized = styled.section`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
