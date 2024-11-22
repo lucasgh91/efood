@@ -3,20 +3,25 @@ import { Prato } from '../../models/Prato'
 import { ButtonFechar, ModalContent, ModalStylized } from './styles'
 import fecharImg from '../../assets/images/fechar.svg'
 import { ButtonStylized } from '../../utils/styles'
+import { useDispatch } from 'react-redux'
+import { add, openCart } from '../../store/reducers/cart'
+import { FormataPreco } from '../../utils/functions'
 
 type ModalType = {
   prato: Prato,
   modalToggle: boolean,
   setModalToggle: Dispatch<SetStateAction<boolean>>
 }
-const formataPreco = (preco: number) => {
-  return Intl.NumberFormat('pt-BR', {
-    style: 'currency',
-    currency: 'BRL'
-  }).format(preco)
-}
 
 const Modal = ({ prato, modalToggle, setModalToggle }: ModalType) => {
+  const dispatch = useDispatch()
+
+  const addPrato = () => {
+    dispatch(add(prato))
+    setModalToggle(false)
+    dispatch(openCart())
+  }
+
   return (
     <ModalStylized $aberto={modalToggle}>
       <ModalContent className="container">
@@ -28,8 +33,8 @@ const Modal = ({ prato, modalToggle, setModalToggle }: ModalType) => {
           <h2>{prato.nome}</h2>
           <p>{prato.descricao}</p>
           <p>Serve: {prato.porcao}</p>
-          <ButtonStylized>
-            Adicionar ao carrinho - {formataPreco(prato.preco)}
+          <ButtonStylized onClick={addPrato}>
+            Adicionar ao carrinho - {FormataPreco(prato.preco)}
           </ButtonStylized>
         </div>
       </ModalContent>
