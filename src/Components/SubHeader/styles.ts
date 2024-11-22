@@ -16,6 +16,15 @@ export const SubHeaderStylized = styled.header`
     justify-content: space-between;
     align-items: center;
   }
+
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-size: inherit;
+    color: inherit;
+    font-weight: inherit;
+  }
 `
 
 export const LinkStylized = styled(Link)`

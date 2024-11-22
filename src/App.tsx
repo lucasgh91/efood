@@ -1,17 +1,23 @@
 import { BrowserRouter } from 'react-router-dom'
-import { GlobalStyle } from './utils/styles'
+import { Provider } from 'react-redux'
+import { store } from './store'
 import Rotas from './routes'
+import { GlobalStyle } from './utils/styles'
+import Cart from './Components/Cart'
 
 function App() {
   return (
-    <BrowserRouter
-      future={{
-        v7_startTransition: true,
-        v7_relativeSplatPath: true
-      }}>
-      <GlobalStyle />
-      <Rotas />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter
+        future={{
+          v7_startTransition: true,
+          v7_relativeSplatPath: true
+        }}>
+        <GlobalStyle />
+        <Rotas />
+        <Cart />
+      </BrowserRouter>
+    </Provider>
   )
 }
 
