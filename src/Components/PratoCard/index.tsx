@@ -13,9 +13,11 @@ const PratoCard = ({ prato }: PratoCardType) => {
 
   return (
     <PratoCardStylized>
-      <img src={prato.foto} alt={prato.nome} />
-      <h3>{prato.nome}</h3>
-      <p>{prato.descricao}</p>
+      <div>
+        <img src={prato.foto} alt={prato.nome} />
+        <h3>{prato.nome}</h3>
+        <p>{`${prato.descricao.slice(0, 100)}...`}</p>
+      </div>
       <ButtonStylized onClick={() => setModalToggle(true)}>
         Mais detalhes
       </ButtonStylized>

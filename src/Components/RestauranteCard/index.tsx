@@ -32,7 +32,9 @@ const RestauranteCard = ({
         </div>
       </h2>
       <p>{descricao}</p>
-      <LinkStylized to={'/restaurante/' + id}>Saber mais</LinkStylized>
+      <div>
+        <LinkStylized to={'/restaurante/' + id}>Saber mais</LinkStylized>
+      </div>
     </Descricao>
   </RestauranteStylized>
 )

@@ -4,21 +4,27 @@ import { Link } from 'react-router-dom'
 
 export const RestauranteStylized = styled.div`
   max-width: 472px;
+  height: 100%;
   border: 1px solid ${cores.vermelho};
   background-color: ${cores.branco};
   color: ${cores.vermelho};
   position: relative;
+  display: flex;
+  flex-direction: column;
 
   img {
     width: 100%;
-    height: 300px;
+    height: 217px;
     object-fit: cover;
   }
 `
 
 export const Descricao = styled.div`
   padding: 8px;
+  height: 181px;
   font-size: 14px;
+  display: flex;
+  flex-direction: column;
 
   h2 {
     line-height: 25px;
@@ -26,7 +32,6 @@ export const Descricao = styled.div`
     display: flex;
     justify-content: space-between;
     margin-bottom: 16px;
-
     div {
       display: flex;
       img {
@@ -35,6 +40,9 @@ export const Descricao = styled.div`
         margin-left: 8px;
       }
     }
+  }
+  p {
+    flex: 1;
   }
 `
 

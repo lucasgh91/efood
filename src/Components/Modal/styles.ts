@@ -58,6 +58,7 @@ export const ButtonFechar = styled.button`
   position: absolute;
   top: 8px;
   right: 8px;
+  &,
   img {
     width: 25px;
     height: 25px;
