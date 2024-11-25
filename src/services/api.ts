@@ -11,8 +11,19 @@ export const api = createApi({
     }),
     getRestaurante: builder.query<Restaurante, string>({
       query: (id) => `restaurantes/${id}`
+    }),
+    updateOrder: builder.mutation<OrderCreateResponseType, OrderType>({
+      query: (body) => ({
+        url: 'checkout',
+        method: 'POST',
+        body
+      })
     })
   })
 })
 
-export const { useGetRestaurantesQuery, useGetRestauranteQuery } = api
+export const {
+  useGetRestaurantesQuery,
+  useGetRestauranteQuery,
+  useUpdateOrderMutation
+} = api

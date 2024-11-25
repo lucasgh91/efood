@@ -3,11 +3,15 @@ import { cores } from '../../utils/styles'
 
 export const PratoCardStylized = styled.div`
   width: 320px;
+  height: 100%;
   padding: 8px;
   background-color: ${cores.vermelho};
   color: ${cores.cremeEscuro};
   font-size: 14px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   img {
     width: 100%;

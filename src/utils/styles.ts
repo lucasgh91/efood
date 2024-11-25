@@ -2,6 +2,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 
 export const cores = {
   vermelho: '#E66767',
+  vermelhoClaro: '#ff9a9a',
   creme: '#FFF8F2',
   cremeEscuro: '#FFEBD9',
   branco: '#FFFFFF'
@@ -34,4 +35,15 @@ export const ButtonStylized = styled.button`
   padding: 4px;
   width: 100%;
   margin-top: 8px;
+`
+
+export const LoaderContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+
+  span {
+    color: ${cores.vermelho};
+  }
 `
