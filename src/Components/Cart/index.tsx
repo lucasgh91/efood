@@ -125,6 +125,24 @@ const Cart = () => {
     return hasError
   }
 
+  const validateFirstPartForm = (): boolean => {
+    if (
+      checkInputHasError('fullName') ||
+      checkInputHasError('address') ||
+      checkInputHasError('city') ||
+      checkInputHasError('zipcode') ||
+      checkInputHasError('number') ||
+      Object.keys(form.touched).length === 0
+    ) {
+      return true
+    } else {
+      return false
+    }
+  }
+
+  console.log('VALIDATEFIRSTPARTFORM:', validateFirstPartForm())
+  console.log('FORM', form)
+
   return (
     <S.CartStylized className={isOpen ? 'is-open' : ''}>
       <S.Overlay onClick={closeTheCart} />
@@ -241,7 +259,10 @@ const Cart = () => {
                 />
               </S.InputGroup>
             </S.FormGroup>
-            <S.CartButton type="button" onClick={() => changeStage()}>
+            <S.CartButton
+              disabled={validateFirstPartForm()}
+              type="button"
+              onClick={() => changeStage()}>
               Continuar com o pagamento
             </S.CartButton>
             <S.CartButton type="button" onClick={() => changeStage(true)}>
