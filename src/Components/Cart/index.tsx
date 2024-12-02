@@ -77,7 +77,7 @@ const Cart = () => {
       zipCode: Yup.string()
         .matches(/^[0-9]{5}-[0-9]{3}$/)
         .required(),
-      number: Yup.string().min(1).required(),
+      number: Yup.number().min(1).required(),
       complement: Yup.string(),
       cardFullName: Yup.string().required(),
       cardNumber: Yup.string().min(19).required(),
@@ -127,16 +127,16 @@ const Cart = () => {
 
   const validateFirstPartForm = (): boolean => {
     if (
-      checkInputHasError('fullName') ||
-      checkInputHasError('address') ||
-      checkInputHasError('city') ||
-      checkInputHasError('zipcode') ||
-      checkInputHasError('number') ||
-      Object.keys(form.touched).length === 0
+      !checkInputHasError('fullName') &&
+      !checkInputHasError('address') &&
+      !checkInputHasError('city') &&
+      !checkInputHasError('zipcode') &&
+      !checkInputHasError('number') &&
+      Object.keys(form.touched).length === 5
     ) {
-      return true
-    } else {
       return false
+    } else {
+      return true
     }
   }
 
